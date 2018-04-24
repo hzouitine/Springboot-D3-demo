@@ -29,4 +29,20 @@ public class AgeService {
         }
         return ages;
     }
+
+    public int[] getChartData(){
+       int[] data = new int[4];
+       for(Age a : findAll()){
+           int age = a.getAge();
+           if(age < 10)
+               data[0]++;
+           else if (age < 20)
+               data[1]++;
+           else if (age<30)
+               data[2]++;
+           else if(age < 40)
+               data[3]++;
+       }
+       return data;
+    }
 }
