@@ -14,6 +14,14 @@ public class Age {
 
     private Integer age;
 
+    @Override
+    public String toString() {
+        return "Age{" +
+                "id=" + id +
+                ", age=" + age +
+                '}';
+    }
+
     public Integer getId() {
         return id;
     }

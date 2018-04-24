@@ -25,6 +25,7 @@ public class Index {
             ageObj.setAge(age);
             ageService.save(ageObj);
         }
+        System.out.println(ageService.findAll());
         return "index";
     }
 
