@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+</head>
+
+<body>
+<div id="container" style="width: 75%;margin : auto auto">
+
+<canvas id="myChart"></canvas>
+</div>
+<script>
+    // had mydata khas ykon fiha l calcule dialna tableau fiha somme dial kola tranche d'age
+    var mydata = [2, 20, 30, 45];
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: ["0-10", "10-20", "20-30", "30-40"],
+            datasets: [{
+                label: "Demo",
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: mydata,
+
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });</script>
+</body>
+</html>
