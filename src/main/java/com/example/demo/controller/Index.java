@@ -43,4 +43,9 @@ public class Index {
         return "chart";
     }
 
+    @GetMapping("/show2")
+    public String visualize2(){
+        return "chart2";
+    }
+
 }
