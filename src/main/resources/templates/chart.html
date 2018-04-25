@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Barchart</title>
@@ -10,47 +11,49 @@
 </head>
 
 <body>
-<div id="container" style="width: 75%;margin : auto auto">
+    <div id="container" style="width: 75%;margin : auto auto">
 
-<canvas id="myChart"></canvas>
-</div>
-<script>
+        <canvas id="myChart"></canvas>
+    </div>
+    <script>
+        $.get("/all", function(mydata) {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'bar',
 
-    $.get("/all", function(mydata) {
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var chart = new Chart(ctx, {
-            // The type of chart we want to create
-            type: 'bar',
+                // The data for our dataset
+                data: {
+                    labels: ["0-10", "10-20", "20-30", "30-40"],
+                    datasets: [{
+                        label: "Demo",
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: mydata,
 
-            // The data for our dataset
-            data: {
-                labels: ["0-10", "10-20", "20-30", "30-40"],
-                datasets: [{
-                    label: "Demo",
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: mydata,
-
-                }]
-            },
-
-            // Configuration options go here
-            options: {
-                scales: {
-                    yAxes: [{
-                        hticks: {
-                            beginAtZero:true,
-                            stepSize: 1
-                        }
                     }]
+                },
+
+                // Configuration options go here
+                options: {
+                    scales: {
+                        yAxes: [{
+                        
+                            ticks: {
+                                beginAtZero: true,
+                                stepSize: 1
+                            }
+                        }]
+                    }
                 }
-            }
+
+            });
+
+
 
         });
 
-
-
-    });
-</script>
+    </script>
 </body>
+
 </html>
